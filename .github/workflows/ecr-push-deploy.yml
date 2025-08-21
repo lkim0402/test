@@ -27,6 +27,10 @@ jobs:
       - name: Gradle 캐시 (선택)
         uses: gradle/actions/setup-gradle@v3
 
+      # 3.5) 애플리케이션 빌드를 위해 권한 부여
+      - name: gradlew 실행 권한 부여
+        run: chmod +x ./gradlew
+
       # 4) 애플리케이션 빌드 (JAR 생성)
       - name: 애플리케이션 빌드
         run: ./gradlew clean bootJar   # 또는 ./gradlew clean build
